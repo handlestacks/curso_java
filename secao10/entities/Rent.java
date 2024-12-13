@@ -22,5 +22,10 @@ public class Rent {
 		this.email = email;
 	}	
 	
+	public String toString() {
+		return getName()
+				+ ", "
+				+ email;
+	}
 
 }

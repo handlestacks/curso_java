@@ -42,7 +42,7 @@ public class Pensionato {
 			
 			if(rent[i] != null) {
 				
-				System.out.println(i + ": " + rent[i].getName());
+				System.out.println(i + ": " + rent[i]);
 				
 			}
 		}
