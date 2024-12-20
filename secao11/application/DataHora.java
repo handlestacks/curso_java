@@ -15,7 +15,7 @@ public class DataHora {
 		LocalDateTime d02 = LocalDateTime.now();
 		Instant d03 = Instant.now();
 		LocalDate d04 = LocalDate.parse("2024-12-13");
-		LocalDateTime d05 = LocalDateTime.parse("2024-12-14T03:02:00");
+		LocalDateTime d05 = LocalDateTime.parse("2024-12-14T03:02:02");
 		Instant d06 = Instant.parse("2024-12-14T05:10:03Z");
 		Instant d07 = Instant.parse("2024-12-14T10:00:00-03:00");
 		LocalDate d08 = LocalDate.parse("13/12/2024", fmt1);
