@@ -20,7 +20,7 @@ public class Network {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		List<Post> feed = new ArrayList<>();
 
-		System.out.print("Do you want to make a post? ");
+		System.out.print("Do you want to make a post (y/n)? ");
 		char ans = sc.nextLine().charAt(0);
 
 		while (ans == 'y') {
@@ -35,7 +35,7 @@ public class Network {
 
 			feed.add(new Post(moment, title, content));
 
-			System.out.print("Do you want to make another post? ");
+			System.out.print("Do you want to make another post (y/n)? ");
 			ans = sc.nextLine().charAt(0);
 		}
 		
@@ -48,7 +48,26 @@ public class Network {
 		
 		System.out.println();
 		
-		System.out.print("Do you want to comment any publish? ");
+		System.out.print("Do you want to like any publish (y/n)? ");
+		ans = 'y';
+		while(ans == 'y') {
+			
+			sc.nextLine();
+			
+			System.out.print("Which one? ");
+			int id = sc.nextInt();
+			Integer nLikes = feed.get(id - 1).getLikes();
+			nLikes++;
+			feed.get(id - 1).setLikes(nLikes);
+			
+			System.out.print("Do you want to like another publish (y/n)? ");
+			ans = sc.nextLine().charAt(0);
+			
+		}
+		
+		System.out.println();
+		
+		System.out.print("Do you want to comment any publish (y/n)? ");
 		ans = sc.nextLine().charAt(0);
 		
 		while(ans == 'y') {
@@ -64,25 +83,15 @@ public class Network {
 			feed.get(id - 1).addComment(new Comment(text));
 			
 			System.out.println();
-			System.out.print("Do you want to comment again? ");
+			System.out.print("Do you want to comment again (y/n)? ");
 			ans = sc.nextLine().charAt(0);
 			
 		}
 		
 		System.out.println();
+		
 		for(Post post : feed) {
-			Integer likes = post.getLikes() == null ? 0 : post.getLikes();
-			System.out.println(post.getTitle());
-			System.out.println(likes + " like(s)" + " - " + sdf.format(post.getMoment()));
-			System.out.println(post.getContent());
-			System.out.println("Comments:");
-			
-			for(Comment comment : post.getComments()) {
-				System.out.println(comment.getText());
-			}
-			
-			System.out.println();
-			
+			System.out.println(post);
 		}
 
 		sc.close();

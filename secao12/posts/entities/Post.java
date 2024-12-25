@@ -1,15 +1,18 @@
 package secao12.posts.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Post {
+	
+	public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	private Date moment;
 	private String title;
 	private String content;
-	private Integer likes;
+	private Integer likes = 0;
 
 	private List<Comment> comments = new ArrayList<>();
 
@@ -64,6 +67,25 @@ public class Post {
 
 	public void removeComment(Comment comment) {
 		comments.remove(comment);
+	}
+	
+	public String toString() {
+		int nLikes = getLikes() == null ? 0 : getLikes();
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getTitle() + "\n");
+		sb.append(nLikes + " like(s)");
+		sb.append(" - ");
+		sb.append(sdf.format(this.getMoment()) + "\n");
+		sb.append(this.getContent() + "\n");
+		sb.append("Comments: \n");
+		
+		for(Comment c : comments) {
+			sb.append(c.getText() + "\n");
+		}
+		
+		sb.append("\n");
+				
+		return sb.toString();
 	}
 
 }
