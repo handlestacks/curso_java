@@ -1,13 +1,13 @@
-package secao14.application;
+package secao14.reservation1.application;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import secao14.model.entities.Reservation;
+import secao14.reservation1.model.entities.Reservation;
 
-public class ReservationSolution1 {
+public class Program {
 
 	public static void main(String[] args) throws ParseException {
 
