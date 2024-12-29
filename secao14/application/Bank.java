@@ -1,5 +1,6 @@
 package secao14.application;
 
+import java.text.ParseException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -37,6 +38,8 @@ public class Bank {
 			
 		} catch(DomainException e) {
 			System.out.println("Withdraw error: " + e.getMessage());
+		} catch(Exception e){
+			System.out.println("Unexpected error.");
 		} finally {
 			if(sc != null) {
 				sc.close();
