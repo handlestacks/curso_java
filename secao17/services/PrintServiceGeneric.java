@@ -1,11 +1,15 @@
-package secao17.application;
+package secao17.services;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintService<T> {
+public class PrintServiceGeneric<T> {
 
 	private List<T> list = new ArrayList<>();
+
+	public List<T> getList() {
+		return list;
+	}
 
 	public void addValue(T value) {
 		list.add(value);
@@ -20,10 +24,10 @@ public class PrintService<T> {
 
 	public void print() {
 		System.out.println("[");
-		if(!list.isEmpty()) {
+		if (!list.isEmpty()) {
 			System.out.println(list.get(0));
 		}
-		for(int i = 1; i < list.size(); i++) {
+		for (int i = 1; i < list.size(); i++) {
 			System.out.println(", " + list.get(i));
 		}
 		System.out.println("]");
